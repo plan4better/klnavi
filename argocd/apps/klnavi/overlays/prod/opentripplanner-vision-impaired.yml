@@ -37,7 +37,7 @@ spec:
           image: busybox
           env:
             - name: GRAPH_NAME
-              value: graph_vision_impaired_09122024.obj
+              value: graph_vision_impaired_15122025.obj
           command: 
             - /bin/sh
             - -c
