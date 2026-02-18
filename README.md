@@ -53,6 +53,20 @@ Edit .env with your local values
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 ```
 
+4. Updating the graph (if needed):
+- Delete any previously downloaded graph files
+```
+rm /download/standard/graph.obj
+rm /download/vision-impaired/graph.obj
+```
+- Update .env to reference new graph files
+`OTP_DEFAULT_GRAPH_URL`
+`OTP_VISION_IMPAIRED_GRAPH_URL`
+- Restart services (prod)
+```
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml down --remove-orphans && docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build --force-recreate
+```
+
 Access endpoints:
 
 OTP Standard: http://otp.localhost/pedestrian/standard
